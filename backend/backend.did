@@ -1,4 +1,11 @@
 service : {
   getHighScore: () -> (nat) query;
+  getStats: () ->
+   (record {
+      avgAccuracy: nat;
+      gamesPlayed: nat;
+      highScore: nat;
+    }) query;
   updateHighScore: (nat) -> (nat);
+  updateStats: (nat) -> ();
 }

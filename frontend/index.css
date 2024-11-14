@@ -1,59 +1,84 @@
 body {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #1a1a1a !important;
 }
 
-.guitar-container {
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#track-container {
+    height: 600px;
     background: #2c3e50;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
-#strings-container {
-    width: 100%;
-    min-height: 300px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #34495e;
 }
 
-.string {
+.track-overlay {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 4px;
-    background: #95a5a6;
-    position: relative;
-    transition: all 0.1s ease;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
-.string.active {
+#timing-bar {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    height: 2px;
     background: #e74c3c;
-    height: 6px;
     box-shadow: 0 0 10px #e74c3c;
 }
 
-#keyboard-guide {
-    background: rgba(0,0,0,0.2);
-    padding: 1rem;
+#notes-container {
+    position: relative;
+    height: 100%;
+}
+
+.note {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    background: #3498db;
+    border-radius: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 50ms linear;
+}
+
+.note.perfect {
+    background: #2ecc71;
+    box-shadow: 0 0 10px #2ecc71;
+}
+
+.note.good {
+    background: #f1c40f;
+    box-shadow: 0 0 10px #f1c40f;
+}
+
+.note.miss {
+    background: #e74c3c;
+    box-shadow: 0 0 10px #e74c3c;
+}
+
+.score-container {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
     border-radius: 8px;
-}
-
-#score-display, #high-score {
-    font-size: 1.5rem;
-    color: #ecf0f1;
+    margin-top: 20px;
     text-align: center;
+    font-size: 1.2em;
 }
 
-@keyframes stringVibration {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(2px); }
-    75% { transform: translateX(-2px); }
-    100% { transform: translateX(0); }
-}
-
-.string.vibrating {
-    animation: stringVibration 0.1s ease-in-out;
+#keyboard-guide {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
 }
